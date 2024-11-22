@@ -1,14 +1,30 @@
 [tool.poetry]
-name = "celero-bfm-fi-proto-lib"
+name = "celero-bfm-fi-proto"
 version = "0.1.0"
-description = ""
+description = "Lib to manage proto files for each domain in bfm fi api"
 authors = ["Maicon de Menezes <maicon.menezes@celero.com.br>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
+protobuf = "^5.28.3"
+grpcio = "^1.68.0"
+python-decouple = "^3.8"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.45"
+grpcio-tools = "^1.68.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "google-artifact-registry"
+url = "https://us-east1-python.pkg.dev/celero-main/celero-finance/simple/"
+priority = "explicit"

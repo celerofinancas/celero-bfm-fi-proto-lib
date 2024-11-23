@@ -1,0 +1,46 @@
+syntax = "proto3";
+package company;
+// Definição do serviço Company
+service Company {
+    // Criação de uma nova empresa
+    rpc CreateCompany (CreateCompanyRequest) returns (CreateCompanyResponse);
+    // Desativação da licença de uma empresa
+    rpc DeactivateCompany (DeactivateCompanyRequest) returns (DeactivateCompanyResponse);
+    // Reativação da licença de uma empresa
+    rpc ReactivateCompany (ReactivateCompanyRequest) returns (ReactivateCompanyResponse);
+}
+// Mensagem de solicitação para criar uma empresa
+message CreateCompanyRequest {
+    string legal_entity_registration = 1;   // CNPJ
+    string company_id = 2;            // ID único da empresa na IF
+    string company_name = 3;          // Razão social da empresa
+    string trade_name = 4;            // Nome fantasia (Opcional)
+}
+// Resposta para a criação da empresa
+message CreateCompanyResponse {
+	string status = 1;                // Status de publicação de comando
+	string description = 2;           // Descrição de aceitação ou rejeição da publicação
+    string command_id = 3;            // ID do comando em caso de status accepted
+}
+// Mensagem de solicitação para desativar a licença de uma empresa
+message DeactivateCompanyRequest {
+    string company_id = 1;            // ID único da empresa na IF
+    string reason = 2;                // Motivo da desativação
+}
+// Resposta para a desativação da licença
+message DeactivateCompanyResponse {
+	string status = 1;                // Status de publicação de comando
+	string description = 2;           // Descrição de aceitação ou rejeição da publicação
+    string command_id = 3;            // ID do comando em caso de status accepted
+}
+// Mensagem de solicitação para reativar a licença de uma empresa
+message ReactivateCompanyRequest {
+	string company_id = 1;            // ID único da empresa na IF
+    string reason = 2;                // Motivo da reativação
+}
+// Resposta para a reativação da licença
+message ReactivateCompanyResponse {
+	string status = 1;                // Status de publicação de comando
+	string description = 2;           // Descrição de aceitação ou rejeição da publicação
+    string command_id = 3;            // ID do comando em caso de status accepted
+}

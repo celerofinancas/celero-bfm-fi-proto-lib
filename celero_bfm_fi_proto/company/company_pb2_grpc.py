@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import company_pb2 as company__pb2
+from celero_bfm_fi_proto.company import company_pb2 as celero__bfm__fi__proto_dot_company_dot_company__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in company_pb2_grpc.py depends on'
+        + f' but the generated code in celero_bfm_fi_proto/company/company_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -37,18 +37,18 @@ class CompanyStub(object):
         """
         self.CreateCompany = channel.unary_unary(
                 '/company.Company/CreateCompany',
-                request_serializer=company__pb2.CreateCompanyRequest.SerializeToString,
-                response_deserializer=company__pb2.CreateCompanyResponse.FromString,
+                request_serializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CreateCompanyRequest.SerializeToString,
+                response_deserializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.FromString,
                 _registered_method=True)
         self.DeactivateCompany = channel.unary_unary(
                 '/company.Company/DeactivateCompany',
-                request_serializer=company__pb2.DeactivateCompanyRequest.SerializeToString,
-                response_deserializer=company__pb2.DeactivateCompanyResponse.FromString,
+                request_serializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.DeactivateCompanyRequest.SerializeToString,
+                response_deserializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.FromString,
                 _registered_method=True)
         self.ReactivateCompany = channel.unary_unary(
                 '/company.Company/ReactivateCompany',
-                request_serializer=company__pb2.ReactivateCompanyRequest.SerializeToString,
-                response_deserializer=company__pb2.ReactivateCompanyResponse.FromString,
+                request_serializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.ReactivateCompanyRequest.SerializeToString,
+                response_deserializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.FromString,
                 _registered_method=True)
 
 
@@ -82,18 +82,18 @@ def add_CompanyServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateCompany': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateCompany,
-                    request_deserializer=company__pb2.CreateCompanyRequest.FromString,
-                    response_serializer=company__pb2.CreateCompanyResponse.SerializeToString,
+                    request_deserializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CreateCompanyRequest.FromString,
+                    response_serializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.SerializeToString,
             ),
             'DeactivateCompany': grpc.unary_unary_rpc_method_handler(
                     servicer.DeactivateCompany,
-                    request_deserializer=company__pb2.DeactivateCompanyRequest.FromString,
-                    response_serializer=company__pb2.DeactivateCompanyResponse.SerializeToString,
+                    request_deserializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.DeactivateCompanyRequest.FromString,
+                    response_serializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.SerializeToString,
             ),
             'ReactivateCompany': grpc.unary_unary_rpc_method_handler(
                     servicer.ReactivateCompany,
-                    request_deserializer=company__pb2.ReactivateCompanyRequest.FromString,
-                    response_serializer=company__pb2.ReactivateCompanyResponse.SerializeToString,
+                    request_deserializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.ReactivateCompanyRequest.FromString,
+                    response_serializer=celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -122,8 +122,8 @@ class Company(object):
             request,
             target,
             '/company.Company/CreateCompany',
-            company__pb2.CreateCompanyRequest.SerializeToString,
-            company__pb2.CreateCompanyResponse.FromString,
+            celero__bfm__fi__proto_dot_company_dot_company__pb2.CreateCompanyRequest.SerializeToString,
+            celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -149,8 +149,8 @@ class Company(object):
             request,
             target,
             '/company.Company/DeactivateCompany',
-            company__pb2.DeactivateCompanyRequest.SerializeToString,
-            company__pb2.DeactivateCompanyResponse.FromString,
+            celero__bfm__fi__proto_dot_company_dot_company__pb2.DeactivateCompanyRequest.SerializeToString,
+            celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -176,8 +176,8 @@ class Company(object):
             request,
             target,
             '/company.Company/ReactivateCompany',
-            company__pb2.ReactivateCompanyRequest.SerializeToString,
-            company__pb2.ReactivateCompanyResponse.FromString,
+            celero__bfm__fi__proto_dot_company_dot_company__pb2.ReactivateCompanyRequest.SerializeToString,
+            celero__bfm__fi__proto_dot_company_dot_company__pb2.CompanyCommandResponse.FromString,
             options,
             channel_credentials,
             insecure,
